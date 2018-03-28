@@ -1,0 +1,22 @@
+﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (x64\Release\) contains files shared from another project (yolo_cpp_dll_no_gpu.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  yolo_console_dll.cpp
+c:\users\руся\desktop\darknet-master\darknet-master\src\yolo_v2_class.hpp(48): warning C4305: инициализация: усечение из "double" к "float"
+c:\users\руся\desktop\darknet-master\darknet-master\src\yolo_v2_class.hpp(79): warning C4244: *=: преобразование "float" в "unsigned int", возможна потеря данных
+c:\users\руся\desktop\darknet-master\darknet-master\src\yolo_v2_class.hpp(117): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+c:\users\руся\desktop\darknet-master\darknet-master\src\yolo_v2_class.hpp(529): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+c:\users\руся\desktop\darknet-master\darknet-master\src\yolo_v2_class.hpp(552): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+c:\users\руся\desktop\darknet-master\darknet-master\src\yolo_v2_class.hpp(554): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+c:\users\руся\desktop\darknet-master\darknet-master\src\yolo_v2_class.hpp(570): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+..\..\src\yolo_console_dll.cpp(30): warning C4244: аргумент: преобразование "unsigned int" в "float", возможна потеря данных
+..\..\src\yolo_console_dll.cpp(32): warning C4244: аргумент: преобразование "unsigned int" в "float", возможна потеря данных
+..\..\src\yolo_console_dll.cpp(68): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
+..\..\src\yolo_console_dll.cpp(70): warning C4018: <=: несоответствие типов со знаком и без знака
+..\..\src\yolo_console_dll.cpp(76): warning C4018: >: несоответствие типов со знаком и без знака
+..\..\src\yolo_console_dll.cpp(80): warning C4018: <=: несоответствие типов со знаком и без знака
+..\..\src\yolo_console_dll.cpp(86): warning C4018: >: несоответствие типов со знаком и без знака
+..\..\src\yolo_console_dll.cpp(129): warning C4305: аргумент: усечение из "double" к "float"
+  Создание кода
+  All 657 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Создание кода завершено
+  yolo_console_dll.vcxproj -> C:\Users\Руся\Desktop\darknet-master\darknet-master\build\darknet\x64\yolo_console_dll.exe
+  yolo_console_dll.vcxproj -> C:\Users\Руся\Desktop\darknet-master\darknet-master\build\darknet\x64\yolo_console_dll.pdb (Full PDB)

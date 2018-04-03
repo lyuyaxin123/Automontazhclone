@@ -65,6 +65,8 @@ bbox_t find_frame(std::vector<bbox_t> const lecturer, int width, int height, dou
 	frame.track_id = 0;
 	frame.w = (int)(koeff * width);
 	frame.h = (int)(koeff * height);
+	frame.x = 1;
+	frame.y = height - frame.h;
 	int deltaY = 0.05 * frame.h;
 	for (auto &i : lecturer) {
 		if ((i.x + i.w / 2 - frame.w / 2) > 0 && ((i.x + i.w / 2 + frame.w / 2) <= width)) {
@@ -122,14 +124,20 @@ int main()
 			std::string const file_ext = filename.substr(filename.find_last_of(".") + 1);
 			if (file_ext == "avi" || file_ext == "mp4" || file_ext == "mjpg" || file_ext == "mov") {	// video file
 				cv::Mat frame;
+				std::vector<bbox_t> lecturer;
 				//detector.nms = 0.02;	// comment it - if track_id is not required
 				for (cv::VideoCapture cap(filename); cap >> frame, cap.isOpened();) {
 					int width = frame.size().width;
 					int height = frame.size().height;
 					std::vector<bbox_t> result_vec = detector.detect(frame, 0.35);
 					//result_vec = detector.tracking_id(result_vec);	// comment it - if track_id is not required
-					
-					std::vector<bbox_t> lecturer = { find_lecturer(result_vec, obj_names) };
+					std::vector<bbox_t> new_lecturer = { find_lecturer(result_vec, obj_names) };
+					if (new_lecturer[0].h != 0 && lecturer.empty()) {
+						lecturer.push_back(new_lecturer[0]);
+					}
+					else if (new_lecturer[0].h != 0) {
+						lecturer[0] = new_lecturer[0];
+					}
 					draw_boxes(frame, lecturer, obj_names, 3);
 					std::vector<bbox_t> focus_on_lecturer = { find_frame(lecturer, width, height, koeff) };
 					draw_boxes(frame, focus_on_lecturer, obj_names, 3);

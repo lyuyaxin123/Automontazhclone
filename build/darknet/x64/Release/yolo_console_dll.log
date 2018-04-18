@@ -14,9 +14,9 @@ d:\darknetmaster\src\yolo_v2_class.hpp(570): warning C4267: аргумент: п
 ..\..\src\yolo_console_dll.cpp(78): warning C4018: >: несоответствие типов со знаком и без знака
 ..\..\src\yolo_console_dll.cpp(82): warning C4018: <=: несоответствие типов со знаком и без знака
 ..\..\src\yolo_console_dll.cpp(88): warning C4018: >: несоответствие типов со знаком и без знака
-..\..\src\yolo_console_dll.cpp(132): warning C4305: аргумент: усечение из "double" к "float"
+..\..\src\yolo_console_dll.cpp(141): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
   Создание кода
-  All 688 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 697 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Создание кода завершено
   yolo_console_dll.vcxproj -> D:\darknetmaster\build\darknet\x64\yolo_console_dll.exe
   yolo_console_dll.vcxproj -> D:\darknetmaster\build\darknet\x64\yolo_console_dll.pdb (Full PDB)

@@ -112,9 +112,17 @@ int main()
 	{
 		std::string filename;
 		double koeff = 1;
-		std::cout << "input resize koeff 0 <= k <= 1: ";
+		double threshold = 0.35;
+		int frequency = 24;
+		std::cout << "input resize coefficient 0 <= k <= 1: ";
 		std::cin >> koeff;
 		if (koeff < 0.00001 || koeff - 1 > 0.00001) break;
+		std::cout << "input threshold of recognize  0 <= threshold <= 1 (recommended value 0.35): ";
+		std::cin >> threshold;
+		if (threshold < 0.00001 || threshold - 1 > 0.00001) break;
+		std::cout << "input frequency of recognize n >= 1 (every n frames): ";
+		std::cin >> frequency;
+		if (frequency < 1) break;
 		std::cout << "input image or video filename: ";
 		std::cin >> filename;
 		if (filename.size() == 0) break;
@@ -125,11 +133,17 @@ int main()
 			if (file_ext == "avi" || file_ext == "mp4" || file_ext == "mjpg" || file_ext == "mov") {	// video file
 				cv::Mat frame;
 				std::vector<bbox_t> lecturer;
+				std::vector<bbox_t> result_vec;
+				int kadr = frequency;
 				//detector.nms = 0.02;	// comment it - if track_id is not required
 				for (cv::VideoCapture cap(filename); cap >> frame, cap.isOpened();) {
+					if (kadr == frequency) {
+						result_vec = detector.detect(frame, threshold);
+						kadr = 0;
+					}
+					kadr++;
 					int width = frame.size().width;
 					int height = frame.size().height;
-					std::vector<bbox_t> result_vec = detector.detect(frame, 0.35);
 					//result_vec = detector.tracking_id(result_vec);	// comment it - if track_id is not required
 					std::vector<bbox_t> new_lecturer = { find_lecturer(result_vec, obj_names) };
 					if (new_lecturer[0].h != 0 && lecturer.empty()) {
